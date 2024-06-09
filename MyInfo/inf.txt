@@ -1,0 +1,58 @@
+запускать в браузере для работы:
+
+
+https://edu.genius.space/uk/courses/fullstack10/dashboard?target_slug=zapisi-efiriv&module_slug=zapisi-efiriv
+https://github.com/genius-space
+https://github.com/Sveta1234555/genius-test
+https://www.google.com/search?client=firefox-b-e&q=%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%87%D0%B8%D0%BA
+file:///D:/it/FullStack/Genius_test/index.html
+
+доп
+1. картинки свободные
+https://picsum.photos/
+2.проверка вложенности тэгов
+https://caninclude.glitch.me/
+
+------------------
+
+D:\it\FullStack
+D:\it\FullStack\Genius_test
+Прошлые видеозаписи и материалы по goit_html:
+D:\it\goit_html
+
+
+----------------
+Figma	Из Goit-html. 
+Не ставили figma.exe. Работали с копиями стилей в инет
+?? Відеоінструкція про встановлення плагіну, який допоможе зчитати стилі з макету: https://youtu.be/9IrPW8VoIWc
+
+?? Посилання на плагін: https://i.goit.global/plugin_figma
+
+
+Этот же плагин в инет:
+https://www.figma.com/community/plugin/1254262542670221199/inspect-style
+И вот От автора плагина:
+Figma Dev Mode стал платным. Что делать? Плагин Inspect Styles 
+https://youtu.be/udYDdemeVrk?si=Kgn8PEklcO0OmZ-p
+https://www.youtube.com/watch?v=udYDdemeVrk
+
+
+мод3
+Свободные картинки для сайтаю на них можно делать прямые ссылки
+https://picsum.photos/
+
+проверка вкладывания тэгов
+https://caninclude.glitch.me/
+
+
+
+
+3 вопроса
+1.как на сайт FIgma закачать проект пекарня
+2. github
+2.1. инсталить, стобы в проектк vscode был, и писать в терминале команды commit
+
+2.2. на самом github обноила проект. но - как папку там добавить Images
+addFile  c именем images/  .  Косая сзади создат  папку. Туда - залить файлы. 
+
+3. как в vscode выыделяются и редактируются соседние одиинаковые теги
