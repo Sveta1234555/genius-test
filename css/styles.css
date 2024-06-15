@@ -1,34 +1,21 @@
-h1 {
-  border: 4px solid black;
+:root {
+  --color-primary-dark: #31261a;
+  --color-primary-light: #faf4ea;
+  --color-brand-light: #819b57;
+  --color-brand-dark: #465929;
 }
 
-p {
-  border: 4px solid violet;
+/* Base */
+body {
+  color: var(--color-primary-dark);
 }
 
-.main-title {
-  border: 4px solid red;
+ul {
+  list-style-type: none;
 }
 
-/* # К id , для Javascript, пока не будем */
-#main-title-id {
-  border: 4px solid blue;
-}
 
-/* к атрибуту элемента */
-[type] {
-  border: 4px solid green;
-}
-
-/* так можно, но ненужно: */
-/* [type="button"] {
-  border: 4px solid greenyellow;
-} */
-
-.button-main {
-  border: 4px solid yellow;
-}
-
+/* button */
 /* Разница отображения для неактивной кнопки */
 /* .button {
   border: 4px solid violet;
@@ -38,30 +25,102 @@ p {
   border: 4px solid black;
 } */
 
-.main-section {
+/* .main-section {
   color: blue;
 }
 
-.main-section > h1{
+.main-section>h1 {
   color: aqua;
 }
 
 .main-section>p {
   color: green;
-}
+} */
 
 /* Псевдоклассы состояния */
 .button {
-  color: #faf4ea;
-  background-color: #819b57;
-  border: 2px solid #819b57;
+  color: var(--color-primary-light);
+  background-color: var(--color-brand-light);
+  border: 2px solid var(--color-brand-light);
   border-radius: 8px;
-  /* padding: 16px 32px;
-  width: 238px;
-  height: 59px; */
+  cursor: pointer;
+}
 
-  /* font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 18px; */
-    
+/* специфичность */
+/* <button class="button" type="button">Замовити дзвінок</button> */
+/* этот приоритетнее, специфичнее */
+/* .button.button[type='button'] {
+  color: red;
+} */
+
+/* .button.button[type='button'] { */
+/* nav .button { */
+
+/* header .button {
+  color: blueviolet;
+} */
+
+.button:hover {
+  color: color-brand-dark;
+  background-color: transparent;
+
+}
+
+/* .button:focus {
+  color: palevioletred;
+}
+
+.button:active {
+  color: yellowgreen;
+} */
+
+/* каскадность */
+/* .button {
+  color: brown;
+
+
+} */
+
+
+/* link */
+.link {
+  color: var(--color-primary-light);
+}
+
+.link:hover {
+  color: var(--color-brand-light);
+}
+
+/* hero-section */
+/* h1 сучасна пекарня */
+.hero-title {
+  color: var(--color-primary-light);
+}
+
+
+/* .hero-title span {
+  color: var(--color-brand-light);
+} */
+
+.hero-title .accent {
+  /* background: rgba(18, 18, 17, 0.6); */
+  color: var(--color-brand-light);
+}
+
+/* advantages section */
+.advantages-list {
+  color: var(--color-primary-light);
+  background: var(--color-brand-light);
+}
+
+/* класс стал ненужен, т.к. color наследуется от указанного в селекторе body
+color там указан как основной для всей страницы.
+Но оставим. надо будет выделять часть текста особым форматом с пом. span  */
+/* .section-title {
+  color: var(--color-primary-dark);
+} */
+
+/* если внутри класса section-title есть класс accent, то цвет задать */
+.section-title .accent {
+  color: var(--color-brand-dark);
 }
