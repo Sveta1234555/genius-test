@@ -1,160 +1,37 @@
-/* poppins-300 - latin */
-@font-face {
-  font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
-  /* font-style: normal; */
-  font-weight: 300;
-  src: url('../fonts/poppins-v21-latin-300.woff2') format('woff2');
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* poppins-regular - latin */
-@font-face {
-  font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
-  /* font-style: normal; */
-  font-weight: 400;
-  src: url('../fonts/poppins-v21-latin-regular.woff2') format('woff2');
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* poppins-600 - latin */
-@font-face {
-  font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
-  /* font-style: normal; */
-  font-weight: 600;
-  src: url('../fonts/poppins-v21-latin-600.woff2') format('woff2');
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* poppins-900 - latin */
-@font-face {
-  font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
-  /* font-style: normal; */
-  font-weight: 900;
-  src: url('../fonts/poppins-v21-latin-900.woff2') format('woff2');
-  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
 :root {
-  --color-primary-dark: #31261a;
-  --color-primary-light: #faf4ea;
-  --color-brand-light: #819b57;
-  --color-brand-dark: #465929;
+  --color-primary-white: #fff;
+  --color-primary-blue: #2b7fff;
+  --color-primary-bluedark: #011c44;
+
+  --color-secondary-grey1: #4a4a4a;
+  --color-secondary-grey2: #4a4a4a;
+  --color-secondary-greylight: #747272;
+  --color-secondary-bluedark: #011f4a;
+  --color-secondary-yellow: #ffd02b;
+  --color-black: #000;
 }
 
-/* Base */
 body {
-  color: var(--color-primary-dark);
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
-}
-
-address {
-  font-style: normal;
+  font-family: "Play", sans-serif;
 }
 
 ul {
   list-style-type: none;
 }
 
-
-/* button */
-/* Разница отображения для неактивной кнопки */
-/* .button {
-  border: 4px solid violet;
-}
-
-.button[disabled] {
-  border: 4px solid black;
-} */
-
-/* .main-section {
-  color: blue;
-}
-
-.main-section>h1 {
-  color: aqua;
-}
-
-.main-section>p {
-  color: green;
-} */
-
-/* Псевдоклассы состояния */
-.button {
-  color: var(--color-primary-light);
-  font-weight: 600;
-  background-color: var(--color-brand-light);
-  border: 2px solid var(--color-brand-light);
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* специфичность */
-/* <button class="button" type="button">Замовити дзвінок</button> */
-/* этот приоритетнее, специфичнее */
-/* .button.button[type='button'] {
-  color: red;
-} */
-
-/* .button.button[type='button'] { */
-/* nav .button { */
-
-/* header .button {
-  color: blueviolet;
-} */
-
-.button:hover {
-  color: color-brand-dark;
-  background-color: transparent;
-
-}
-
-/* .button:focus {
-  color: palevioletred;
-}
-
-.button:active {
-  color: yellowgreen;
-} */
-
-/* каскадность */
-/* .button {
-  color: brown;
-
-
-} */
-
-
-/* link */
-.link {
-  color: var(--color-primary-light);
-  text-decoration: none;
-
-
-}
-
-.link:hover {
-  color: var(--color-brand-light);
-  font-weight: 600;
-}
-
-/* hero-section */
-/* h1 сучасна пекарня */
+/* hero-section h1*/
 .hero-title {
-  color: var(--color-primary-light);
-  text-align: center;
-  font-size: 128px;
-  font-weight: 900;
+  color: var(--color-primary-blue);
+  font-family: Play, sans-serif;
+  text-align: left;
+  text-transform: capitalize;
+
+  /* дальше пока ненадо */
+  /* text-transform: capitalize;  так было в макетк figma, это первые буквы слов большие */
+  font-size: 140px;
+  font-weight: 700;
+  line-height: 81%;
+
   /* font-style: italic; */
   /* text-transform: capitalize; */
   /* text-shadow: 2px 2px 4px violet;
@@ -163,88 +40,54 @@ ul {
   white-space: nowrap; */
 }
 
-
-/* .hero-title span {
-  color: var(--color-brand-light);
-} */
-
-.hero-title .accent {
-  /* background: rgba(18, 18, 17, 0.6); */
-  color: var(--color-brand-light);
-}
-
-/* advantages section */
-.advantages-list {
-  color: var(--color-primary-light);
-  background: var(--color-brand-light);
-}
-
-.advantages-item {
-  font-size: 20px;
-  font-weight: 300;
-}
-
-/* класс стал ненужен, т.к. color наследуется от указанного в селекторе body
-color там указан как основной для всей страницы.
-Но оставим. надо будет выделять часть текста особым форматом с пом. span  */
-/* .section-title {
-  color: var(--color-primary-dark);
-} */
-
-.section-title {
-  font-size: 64px;
-  font-weight: 900;
-  /* 1.3 = 84px (line-height) / 64px (font-size) */
-  line-height: 1.3;
-}
-
-/* если внутри класса section-title есть класс accent, то цвет задать */
-.section-title .accent {
-  color: var(--color-brand-dark);
-}
-
-/* Traditions section */
-/* .traditions-text span { */
-.traditions-text .brand {
-  color: var(--color-brand-light);
-  font-weight: 600;
-}
-
-.traditions-text .uppercase {
-  text-transform: uppercase;
-}
-
-/* Chefs section */
-.chef-title {
-  font-size: 40px;
-  font-weight: 600;
-  /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
-}
-
-/* Formats section */
-.format-title {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.format-text {
-  font-size: 14px;
-  font-weight: 300;
-}
-
-/* Footer */
-.address-link {
-  color: var(--color-primary-light);
-  font-size: 16px;
-  font-weight: 300;
+/* Header */
+.header-link {
+  color: var(--color-primary-bluedark);
   text-decoration: none;
 }
 
-.address-link:hover {
-  color: var(--color-brand-light);
+.header-link:hover {
+  color: var(--color-primary-blue);
+  /* text-decoration: underline; */
 }
 
-.address-copyright {
-  font-size: 14px;
-  /* 400 inheryt от body} */
+/* Main */
+/* Main Button*/
+.button-primary {
+  /* padding: 16px 32px;
+  width: 219px;
+  height: 53px; */
+  color: var(--color-primary-white);
+  background-color: var(--color-primary-blue);
+  border: 1px solid var(--color-black);
+  border-radius: 32px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.button-primary:hover {
+  background-color: transparent;
+  color: var(--color-primary-bluedark);
+  cursor: pointer;
+}
+
+/* Main h2*/
+h2 span {
+  /* text-transform: capitalize; */
+  color: #2b7fff;
+}
+
+.beauty-zone {
+  text-transform: capitalize;
+}
+
+/* Footer */
+.footer-link {
+  color: var(--color-primary-white);
+  text-decoration: none;
+}
+
+/* вопрос - в макете ничем не отличается выделенный элемент меню нвигации */
+.footer-link:hover {
+  color: var(--color-primary-blue);
+  /* text-decoration: underline; */
 }
