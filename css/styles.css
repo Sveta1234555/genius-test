@@ -2,10 +2,10 @@
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
+  font-family: "Poppins";
   /* font-style: normal; */
   font-weight: 300;
-  src: url('../fonts/poppins-v21-latin-300.woff2') format('woff2');
+  src: url("../fonts/poppins-v21-latin-300.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -13,10 +13,10 @@
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
+  font-family: "Poppins";
   /* font-style: normal; */
   font-weight: 400;
-  src: url('../fonts/poppins-v21-latin-regular.woff2') format('woff2');
+  src: url("../fonts/poppins-v21-latin-regular.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -24,10 +24,10 @@
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
+  font-family: "Poppins";
   /* font-style: normal; */
   font-weight: 600;
-  src: url('../fonts/poppins-v21-latin-600.woff2') format('woff2');
+  src: url("../fonts/poppins-v21-latin-600.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -35,10 +35,10 @@
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Poppins';
+  font-family: "Poppins";
   /* font-style: normal; */
   font-weight: 900;
-  src: url('../fonts/poppins-v21-latin-900.woff2') format('woff2');
+  src: url("../fonts/poppins-v21-latin-900.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -50,12 +50,26 @@
 }
 
 /* Base */
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: var(--color-primary-dark);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
 }
 
 address {
@@ -66,6 +80,19 @@ ul {
   list-style-type: none;
 }
 
+/* Для скрыть визуально h2 в section. Но для браузера останется. так надо */
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.section {
+  padding: 48px 0;
+}
 
 /* button */
 /* Разница отображения для неактивной кнопки */
@@ -116,7 +143,6 @@ ul {
 .button:hover {
   color: color-brand-dark;
   background-color: transparent;
-
 }
 
 /* .button:focus {
@@ -134,13 +160,10 @@ ul {
 
 } */
 
-
 /* link */
 .link {
   color: var(--color-primary-light);
   text-decoration: none;
-
-
 }
 
 .link:hover {
@@ -149,8 +172,13 @@ ul {
 }
 
 /* hero-section */
+.hero-section {
+  padding: 272px 0;
+}
+
 /* h1 сучасна пекарня */
 .hero-title {
+  margin-bottom: 0;
   color: var(--color-primary-light);
   text-align: center;
   font-size: 128px;
@@ -162,7 +190,6 @@ ul {
   word-spacing: 4px;
   white-space: nowrap; */
 }
-
 
 /* .hero-title span {
   color: var(--color-brand-light);
@@ -204,6 +231,15 @@ color там указан как основной для всей страниц
 }
 
 /* Traditions section */
+/* чтобы между1 и 2й секциями сделать 96,а пока есть 48.
+Внимание! ДОбалвлен класс секции 2й через пробел.
+в html :     <section class="traditions-section section" id="traditions-section"> 
+Это в css обращение к class, а не к id. 
+К Id из css НЕ ОБРАЩАТЬСЯ!!!*/
+.traditions-section {
+  padding-top: 96px;
+}
+
 /* .traditions-text span { */
 .traditions-text .brand {
   color: var(--color-brand-light);
