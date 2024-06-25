@@ -51,6 +51,7 @@
 
 /* Base */
 * {
+  /* размеры блока padding  border  отсчитывать внутрь блока */
   box-sizing: border-box;
 }
 
@@ -60,6 +61,7 @@ body {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
+  margin: 0;
 }
 
 h1,
@@ -94,6 +96,18 @@ ul {
   padding: 48px 0;
 }
 
+.container {
+  /* width: 1240px; */
+  /* надо чтобы сайт не менял размеры при изменении адаптив размеров,  типа экрана  */
+  width: 100%;
+  /* max-width: 1240px; */
+  /* 1288=1240+24*2   т.к. padiing из-за установленного box-sizing не учитываются, их надо добавить */
+  max-width: 1288px;
+  /* центрировать контейнер container относително макс размераы горизонатльно */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 /* button */
 /* Разница отображения для неактивной кнопки */
 /* .button {
@@ -118,6 +132,7 @@ ul {
 
 /* Псевдоклассы состояния */
 .button {
+  padding: 16px 32px;
   color: var(--color-primary-light);
   font-weight: 600;
   background-color: var(--color-brand-light);
@@ -240,6 +255,11 @@ color там указан как основной для всей страниц
   padding-top: 96px;
 }
 
+/* отступ от h2 до p в секции 2 traditions (теперь3)  */
+.traditions-title {
+  margin-bottom: 42px;
+}
+
 /* .traditions-text span { */
 .traditions-text .brand {
   color: var(--color-brand-light);
@@ -251,13 +271,26 @@ color там указан как основной для всей страниц
 }
 
 /* Chefs section */
+.chefs-title {
+  /* от заголовка h2 до списка настя-влад в секц. 3 (теперь 4) Шефы */
+  margin-bottom: 80px;
+}
+
 .chef-title {
+  /* От Настя, Влад (h2) до параграфа одинаково по 16px: */
+  margin-bottom: 16px;
   font-size: 40px;
   font-weight: 600;
   /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
+
 }
 
 /* Formats section */
+.formats-title {
+  /* от h2 Walrus...  до p */
+  margin-bottom: 80px;
+}
+
 .format-title {
   font-size: 24px;
   font-weight: 600;
@@ -266,6 +299,13 @@ color там указан как основной для всей страниц
 .format-text {
   font-size: 14px;
   font-weight: 300;
+}
+
+
+/* Contacts section */
+.contact-title {
+  /* от h2 Приеднуйся...  до p Заповни форму */
+  margin-bottom: 16px;
 }
 
 /* Footer */
