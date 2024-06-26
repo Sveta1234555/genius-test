@@ -1,19 +1,17 @@
 * {
-    /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
-    box-sizing: border-box;
+  /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+  box-sizing: border-box;
 }
 
-
-
 .box {
-    width: 100px;
-    height: 100px;
-    background-color: burlywood;
+  /* display: none; */
+  width: 100px;
+  height: 100px;
+  background-color: burlywood;
 
-
-    /* border: 5px dotted darkred; */
-    /* dotted -пунктирная рамка*/
-    /* padding: 10px;
+  /* border: 5px dotted darkred; */
+  /* dotted -пунктирная рамка*/
+  /* padding: 10px;
     border: 5px solid darkred;
 
     border-radius: 5px;
@@ -22,41 +20,40 @@
     border-bottom: 10px;
     margin-left: 10px; */
 
-    /* padding-top: 16px;
+  /* padding-top: 16px;
     padding-right: 42px;
     padding-bottom: 16px;
     padding-left: 42px; */
 
+  /* padding: 16px 42px 16px 42px; */
+  /* padding: 16px 42px; */
 
-    /* padding: 16px 42px 16px 42px; */
-    /* padding: 16px 42px; */
-
-    /* центрирует текст */
-    /* text-align: center; */
-    /* меняет авторасширение установленное margin-right auto (блок автомаитчески расположен справа, поле справа расширяется до правого края браузера)
+  /* центрирует текст */
+  /* text-align: center; */
+  /* меняет авторасширение установленное margin-right auto (блок автомаитчески расположен справа, поле справа расширяется до правого края браузера)
      на слева  максималный margin: (т.е. блок расположится справого края браузера при margin-left  auto)*/
-    /* margin-left: auto; */
+  /* margin-left: auto; */
 
-
-    /* центрировать сам блок, разместить его посредине экрана  */
-    /* margin-left: auto;
+  /* центрировать сам блок, разместить его посредине экрана  */
+  /* margin-left: auto;
     margin-right: auto; */
 
-    /* тоже самое кроче: (центрировать весь блок горизонтально, 0 - left bottom, auto lefr right) */
-    /* margin: 0 auto; */
+  /* тоже самое кроче: (центрировать весь блок горизонтально, 0 - left bottom, auto lefr right) */
+  /* margin: 0 auto; */
 
+  padding: 10px;
+  border: 5px solid darkred;
+  /* размер блока будет 130-130 (100+10*2 padding + 5*2 border) */
+  margin: 10px;
+  /* margin не добавляется в размер блока итоговый в f12, т.к.к это внешний отступ. блок останется 130-130 */
 
+  /* по-умолч: отступы добавляются к оновному блоку текста, блок 130-130 получается */
+  box-sizing: content-box;
 
-    padding: 10px;
-    border: 5px solid darkred;
-    /* размер блока будет 130-130 (100+10*2 padding + 5*2 border) */
-    margin: 10px;
-    /* margin не добавляется в размер блока итоговый в f12, т.к.к это внешний отступ. блок останется 130-130 */
+  /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+  box-sizing: border-box;
+}
 
-
-    /* по-умолч: отступы добавляются к оновному блоку текста, блок 130-130 получается */
-    box-sizing: content-box;
-
-    /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
-    box-sizing: border-box;
+.box:nth-child(2n + 4) {
+  background-color: gold;
 }

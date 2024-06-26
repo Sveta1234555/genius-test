@@ -1,0 +1,135 @@
+* {
+  /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* ----------flex-direction: */
+  /* ПО-умолч row горизонтально row*/
+  /* flex-direction: row; */
+  /* flex-direction: column; */
+  /* в обратном порядке элементы распооагаются: */
+  /* flex-direction: column-reverse; */
+  /* в обратном порядке элементы распооагаются и 2.к правому краю: */
+  /* flex-direction: row-reverse; */
+  /* column-reverse  и  row-reverse используются оч. редко */
+
+  /*------------- justify-content */
+  /* по-умолч  flex-start;  влево прижимаются */
+  /* justify-content: flex-start; */
+  /* justify-content: center; */
+
+  /* одинак расст-е между  элементами */
+  /* редко использ. одиинак. расст-я от всей ширины, есть и слева - справа рассчтояния от границ веритикальныз 
+  Расчет исходя из равномерных расстояний с боков каждого элемента. 
+  1600ширина / (4элемента*2 расстояния по бокам)
+  Будет по 200 от краев и 400 между элементами*/
+  /* justify-content: space-around; */
+
+  /* редко использ. одиинак. расст-я от всей ширины, НЕТ слева - справа рассчтояния от границ веритикальных.
+   Крайние левый правй элемент - впритык к краям браузера левому правому ,
+   а между оставшимися - расстояние поровну между всеми
+   (1600ширина - (4 элемента* width Элемента))/ (4элемента -1) */
+  /* justify-content: space-evenly; */
+  /* часто использ: space-between . крайние элементы прижимает к краям слева справа
+  Пример - текст и картинка - по разным краям строки-линии прижимаются к левому и правому краям*/
+  /* justify-content: space-between; */
+
+  /* justify-content: center; чаще*/
+
+  /* ------------align-items*/
+  /* align-items: выравнивает элемент вдоль поперечной оси.  */
+  /* кубики сдвигаются вверх-вниз , расположены центрированно по вертикали */
+
+  /* align-items: center; */
+  /* вниз по вертикали */
+  /* align-items: flex-end; */
+  /* вверх по вертикали, к верхнему краю */
+  /* align-items: flex-start; */
+
+  /* по-умолч stretch. ПОхож на  flex-start. но растягивает пропорц размеру элемента*/
+  /* align-items: stretch; */
+
+  /* чаще всего, 90% Center */
+  /* align-items: center; */
+
+  /* 
+  ИТого: justify-content  расположение вдоль оси горизонтали,
+   align-items расположение вдоль оси вертикали.
+   НО это если стоит по-умолч  :    flex-direction: row;
+   Если меняем на flex-direction: column;
+    align-items значения   *main  и *cross  становятся наоборот */
+}
+
+.item {
+  /* display: none; */
+  /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  background-color: burlywood;
+
+  /* border: 5px dotted darkred; */
+  /* dotted -пунктирная рамка*/
+  /* padding: 10px;
+    border: 5px solid darkred;
+
+    border-radius: 5px;
+    margin: 10px;
+    padding-top: 10px;
+    border-bottom: 10px;
+    margin-left: 10px; */
+
+  /* padding-top: 16px;
+    padding-right: 42px;
+    padding-bottom: 16px;
+    padding-left: 42px; */
+
+  /* padding: 16px 42px 16px 42px; */
+  /* padding: 16px 42px; */
+
+  /* центрирует текст */
+  /* text-align: center; */
+  /* меняет авторасширение установленное margin-right auto (блок автомаитчески расположен справа, поле справа расширяется до правого края браузера)
+     на слева  максималный margin: (т.е. блок расположится справого края браузера при margin-left  auto)*/
+  /* margin-left: auto; */
+
+  /* центрировать сам блок, разместить его посредине экрана  */
+  /* margin-left: auto;
+    margin-right: auto; */
+
+  /* тоже самое кроче: (центрировать весь блок горизонтально, 0 - left bottom, auto lefr right) */
+  /* margin: 0 auto; */
+
+  padding: 10px;
+  border: 6px solid darkred;
+  /* размер блока будет 130-130 (100+10*2 padding + 5*2 border) */
+  margin: 10px;
+  /* margin не добавляется в размер блока итоговый в f12, т.к.к это внешний отступ. блок останется 130-130 */
+
+  /* по-умолч: отступы добавляются к оновному блоку текста, блок 130-130 получается */
+  /* box-sizing: content-box; */
+
+  /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+  /* box-sizing: border-box; */
+}
+
+/* .box:nth-child(2n + 4) {
+  background-color: gold;
+} */
+
+/* Для сделать ращзными элеементы чтобы посмотеть   align-items: - выравнивание вдоль поперчной оси */
+.item:nth-child(2) {
+  width: 50px;
+  height: 50px;
+}
+
+/* Внимание - чтобы отработало - надо last-child без скобочек */
+.item:last-child {
+  width: 80px;
+  height: 80px;
+}

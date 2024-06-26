@@ -186,6 +186,18 @@ ul {
   font-weight: 600;
 }
 
+/* Header */
+.header {
+  background-color: lightgrey;
+}
+.header-container {
+  /* 2 блока (логотип+ меню   и   кнопка) стали горизонтально рядом
+  но stretch - растянута кнопка по вертикали на всю высоту строки (заданную наверное составом меню) */
+  display: flex;
+  /* сдедать кнопку не растянутой, а центрированной по вертикали */
+  align-items: center;
+}
+
 /* hero-section */
 .hero-section {
   padding: 272px 0;
@@ -282,7 +294,6 @@ color там указан как основной для всей страниц
   font-size: 40px;
   font-weight: 600;
   /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
-
 }
 
 /* Formats section */
@@ -300,7 +311,6 @@ color там указан как основной для всей страниц
   font-size: 14px;
   font-weight: 300;
 }
-
 
 /* Contacts section */
 .contact-title {
