@@ -105,7 +105,7 @@ ul {
   /* max-width: 1240px; */
   /* 1288=1240+24*2   т.к. padiing из-за установленного box-sizing не учитываются, их надо добавить */
   max-width: 1288px;
-  /* центрировать контейнер container относително макс размераы горизонатльно */
+  /* центрировать контейнер div class=container относително макс размераы горизонатльно */
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -196,7 +196,6 @@ ul {
   background-color: lightgrey;
 }
 
-
 .header-container {
   /* 2 блока (логотип+ меню   и   кнопка) стали горизонтально рядом
   но align-items=stretch по-умолч - поэтому растянута кнопка по вертикали на всю высоту строки - родительского элемента (заданную наверное составом меню) */
@@ -206,7 +205,6 @@ ul {
   /* для разделить nav и кнопку при уменьшении размера экрана */
   gap: 40px;
 }
-
 
 .header-nav {
   /* для расположить горизонтально рядом лого и меню в nav навигации */
@@ -227,7 +225,6 @@ ul {
   /* выравнять по гоавной горизонтальной оси */
   justify-content: center;
 }
-
 
 /* hero-section */
 .hero-section {
@@ -266,7 +263,6 @@ ul {
   /* отступы сверху-снизу от меню padding 16 top bottom. padding дочернего элемента div внутри родительского section advantages-section */
   padding: 16px 0;
 }
-
 
 .advantages-list {
   /* для разместить элементыменю горизонтально */
@@ -315,6 +311,31 @@ color там указан как основной для всей страниц
   padding-top: 96px;
 }
 
+/* div включает все содржимое секции Традиции (H2, p,p, img)*/
+.traditions-container {
+  /* контент (H2, p,p) и img располагает горизонтально. т.к. По-умолч flex-direction: row */
+  display: flex;
+  /* между текстовым контентом (H2, p,p) и  img (именно самой картинкой, а не блоком шире, в которую она помещена в макете Figma)
+расстояние 104px. Раздвигаем эти 2 div с пом. gap */
+  /* gap: 100px; делаем иначе размещение (H2, p,p) и img  2.1 +2.2+2.3.  и в div .traditions-content . 
+  2.1. gap меньше (при уменьшении будет не статично 100, а меньше)  
+  2.2 .traditions-content     max-width: 710px; 
+  2.3.   раздвинуть по сторонам элементы , к краям
+   */
+  /* 2.1 +2.2+2.3  */
+  /* 2.2. ограничить div content с текстом размером 710 по ширине В div .traditions-content*/
+  /* max-width: 710px; */
+  /*2.3. раздвинуть по сторонам элементы , к краям*/
+  justify-content: space-between;
+  /* 2.1.чтобы не сталикивались элементы ри уменьшении ширины экрана */
+  gap: 40px;
+}
+
+.traditions-content {
+  /* 2.2. ограничить div content с текстом размером 710 по ширине */
+  max-width: 710px;
+}
+
 /* отступ от h2 до p в секции 2 traditions (теперь3)  */
 .traditions-title {
   margin-bottom: 42px;
@@ -326,9 +347,38 @@ color там указан как основной для всей страниц
   font-weight: 600;
 }
 
+/* через пробел - это вложенный класс
+<p class="traditions-text">
+      <span class="brand uppercase">shop bakery</span>
+*/
 .traditions-text .uppercase {
   text-transform: uppercase;
 }
+
+/* Ограничить ширину текста половной всего блока . произвольно сами решили . вместо br */
+/* ограничить ширину только2-го параграфа <p>   2 способа. ПОдробнее пробы nth-child() см. inf8_2.txt*/
+/* .traditions-text:nth-child(3) {
+  max-width: 360px;
+} */
+/* .traditions-text:last-child {
+  max-width: 340px;
+} */
+
+/* Без пробела - это этого же уровня этот же сам тэг, но с 2м классом
+<p class="traditions-text limited"> 
+У .traditions-text есть еще и класс limited  .          */
+.traditions-text.limited {
+  max-width: 330px;
+}
+
+/* Так работает тоже: */
+/* .traditions-content .limited {
+  background-color: red;
+} */
+
+/* .traditions-container .limited {
+  background-color: aqua;
+} */
 
 /* Chefs section */
 .chefs-title {
@@ -345,6 +395,24 @@ color там указан как основной для всей страниц
 }
 
 /* Formats section */
+.format-item {
+  /* 40 px это 2 gap по 20 px */
+  flex-basis: calc((100% - 40px) / 3);
+}
+
+.format-card {
+  padding: 24px;
+  border: 1px solid lightgray; /*remove*/
+  border-radius: 16px;
+}
+
+.format-list {
+  /* расположить карточки горизоантально */
+  display: flex;
+  flex-wrap: wrap; /*переносить карточки из расч. 100% / 3*/
+  gap: 20px; /*на макете так*/
+}
+
 .formats-title {
   /* от h2 Walrus...  до p */
   margin-bottom: 80px;
