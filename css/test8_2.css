@@ -1,0 +1,40 @@
+* {
+    /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.item {
+    flex-basis: 100px;
+    /* display: none; */
+    /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+    /* box-sizing: border-box; */
+    /* width: 100px; */
+    height: 100px;
+    background-color: burlywood;
+    padding: 10px;
+    border: 6px solid darkred;
+    /* размер блока будет 130-130 (100+10*2 padding + 5*2 border) */
+    margin: 10px;
+
+    flex: 0 1 auto;
+
+}
+
+/* Для сделать ращзными элеементы чтобы посмотеть   align-items: - выравнивание вдоль поперчной оси */
+/* .item:nth-child(2) {
+    width: 50px;
+    height: 50px;
+} */
+
+/* Внимание - чтобы отработало - надо last-child без скобочек */
+/* .item:last-child {
+    width: 80px;
+    height: 80px;
+} */
