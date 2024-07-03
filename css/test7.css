@@ -4,7 +4,11 @@
 }
 
 .box {
-  /* display: none; */
+  /* display: none; спрятать эти элеемнты в браузере*/
+
+  /* горизонтально и учитывает height и  width. для примера  структурным псевдоклассам*/
+  display: inline-block;
+
   width: 100px;
   height: 100px;
   background-color: burlywood;
@@ -42,7 +46,7 @@
   /* margin: 0 auto; */
 
   padding: 10px;
-  border: 5px solid darkred;
+  border: 6px solid darkred;
   /* размер блока будет 130-130 (100+10*2 padding + 5*2 border) */
   margin: 10px;
   /* margin не добавляется в размер блока итоговый в f12, т.к.к это внешний отступ. блок останется 130-130 */
@@ -54,6 +58,26 @@
   box-sizing: border-box;
 }
 
-.box:nth-child(2n + 4) {
+/* к структурные псевдоклассы  last-child   first-child not() nth-child()*/
+/* .box:last-child {  последний дочерний*/
+/* .box:first-child { первый дочерний*/
+/* .box:not(:first-child) {  все, кроме  первого дочернего*/
+/* .box:not(:last-child) { все, кроме  послднего дочернего */
+/* .box:nth-child(3) {   только один 3й  */
+/* .box:nth-child(3),
+.box:nth-child(4) {   только 3й  и 4й */
+
+/* .box:nth-child(odd) {  все нечетные дочерние - 1,3,5...*/
+/* .box:nth-child(even) { все четные дочерние - 2,4,6...*/
+/* .box:nth-child(n + 3) { все подряд яначиная с 3-го. n от 0 по циклу +1.  0+3=3, 1+3=4, 2+3=5....   */
+/* .box:nth-child(2n + 3) {  с 3-го (2n - всегда через один) через один 3,5, 7, 9,11... */
+/* .box:nth-child(2n + 4) { с 4-го (2n - всегда через один) через один 4,6, 8, 10,12...  */
+/* .box:nth-child(4n) { каждый 4й  4,8,12... */
+.box:nth-child(4n + 5) {
+  /* каждый 4-й с 5-го */
   background-color: gold;
 }
+
+/* .box:nth-child(2n + 4) {
+  background-color: gold;
+} */
