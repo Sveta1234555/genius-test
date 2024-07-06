@@ -7,6 +7,7 @@
   display: flex;
   /* выравнивание элементов в контейнере по основной горизонтально оси */
   justify-content: center;
+  /* align-items: flex-start; */
 }
 
 .item {
@@ -37,14 +38,32 @@
   /* flex-shrink: 1; */
   /* Элемент Не сужается при нехватке места по ширине в родительском flex-контейнере */
   /* flex-shrink: 0; */
-  flex-shrink: 2;
+  /* flex-shrink: 2; */
+
+  /* align-self:  выравнивание по поперччной оси*/
+  /* align-self: center; */
+  /* order: 4; */
+  order: 1;
+  /* width: 50px; */
+  flex-basis: 50px;
+  height: 50px;
+  align-self: center;
+}
+
+.item:nth-child(4) {
+  /* width: 80px; */
+  flex-basis: 80px;
+  height: 80px;
+  /* align-self: end; */
+  align-self: flex-end;
 }
 
 .item:nth-child(3) {
   /* flex-grow: 1; */
   /* 2-q   =1, 3-Й этот =2 . Он д.б . в 2 раза больше 2-го */
   /* flex-grow: 2; */
-  flex-shrink: 3;
+  /* flex-shrink: 3; */
+  order: 2;
 }
 
 /* Для сделать ращзными элеементы чтобы посмотеть   align-items: - выравнивание вдоль поперчной оси */
