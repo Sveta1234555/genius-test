@@ -45,11 +45,11 @@
 :root {
   --color-primary-dark: #31261a;
   --color-primary-light: #faf4ea;
-  --color-secondary-dark: #A28268;
+  --color-secondary-dark: #a28268;
   --color-brand-dark: #465929;
   --color-brand-normal: #819b57;
-  --color-brand-light: #CFCFBC;
-  --color-background: #FAF4EA;
+  --color-brand-light: #cfcfbc;
+  --color-background: #faf4ea;
   /* #A28268; */
 }
 
@@ -254,9 +254,7 @@ ul {
   /* fixed При прокрутке - не двигается: */
   /* background-attachment: fixed; */
 
-
-
-  background-image: url('../images/hero-section-background.jpg');
+  background-image: url("../images/hero-section-background.jpg");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -432,19 +430,22 @@ color там указан как основной для всей страниц
   margin: 0 auto 80px;
 }
 
-
 /* Псевдоэлемент (after before):   для h2*/
 .chefs-title::before,
 .chefs-title::after {
   /* чтобы задавать высоту и ширину сдеелать block. по-умолч псевдо-элементы after before -  Inline и не учитывают w h */
   display: block;
   width: 352px;
+
   /* height: 2px;  вариант2 реализации
   background-color: #CFCFBC; */
   border: 2px solid var(--color-brand-light);
-  content: '';
-}
+  content: "";
 
+  /* мод10 Для добавить svg Через псевдоэлемент - не получилось */
+  /* height: 50px;
+  background-image: url("../images/logo.svg"); */
+}
 
 .chef-photo {
   /* Обрезать фотки шефов Настя ВЛад слева снизу */
@@ -471,7 +472,12 @@ color там указан как основной для всей страниц
 .format-card {
   height: 444px;
   padding: 24px;
-  background-image: linear-gradient(180deg, rgba(49, 38, 26, 0.00)55.21%, rgba(49, 38, 26, 0.71)72.92%, var(--color-primary-dark) 100%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 38, 26, 0) 55.21%,
+    rgba(49, 38, 26, 0.71) 72.92%,
+    var(--color-primary-dark) 100%
+  );
   /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
   /*remove*/
   border: 1px solid lightgray;
@@ -533,13 +539,12 @@ color там указан как основной для всей страниц
 .footer {
   /* background-image: url('../images/footer-background.jpg'); */
   /* png - Прозрачный, чтобы достичь темного цвета фона, как в макете */
-  background-image: url('../images/footer-background.png');
+  background-image: url("../images/footer-background.png");
   background-color: var(--color-primary-dark);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-
 
 /* .test-box {
   width: 300px;
