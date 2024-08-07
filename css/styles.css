@@ -444,7 +444,10 @@ color там указан как основной для всей страниц
 
   /* мод10 Для добавить svg Через псевдоэлемент - не получилось */
   /* height: 50px;
-  background-image: url("../images/logo.svg"); */
+  background-image: url("../images/logo.svg");
+  position: absolute;
+  background-repeat: no-repeat; */
+  /* background-size: cover; */
 }
 
 .chef-photo {
@@ -472,12 +475,10 @@ color там указан как основной для всей страниц
 .format-card {
   height: 444px;
   padding: 24px;
-  background-image: linear-gradient(
-    180deg,
-    rgba(49, 38, 26, 0) 55.21%,
-    rgba(49, 38, 26, 0.71) 72.92%,
-    var(--color-primary-dark) 100%
-  );
+  background-image: linear-gradient(180deg,
+      rgba(49, 38, 26, 0) 55.21%,
+      rgba(49, 38, 26, 0.71) 72.92%,
+      var(--color-primary-dark) 100%);
   /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
   /*remove*/
   border: 1px solid lightgray;
