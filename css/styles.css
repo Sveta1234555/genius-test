@@ -475,10 +475,12 @@ color там указан как основной для всей страниц
 .format-card {
   height: 444px;
   padding: 24px;
-  background-image: linear-gradient(180deg,
-      rgba(49, 38, 26, 0) 55.21%,
-      rgba(49, 38, 26, 0.71) 72.92%,
-      var(--color-primary-dark) 100%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 38, 26, 0) 55.21%,
+    rgba(49, 38, 26, 0.71) 72.92%,
+    var(--color-primary-dark) 100%
+  );
   /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
   /*remove*/
   border: 1px solid lightgray;
@@ -514,6 +516,30 @@ color там указан как основной для всей страниц
   font-weight: 300;
 }
 
+/* Carousel */
+.carousel-button {
+  /* центрировать кнопку */
+  display: flex;
+  /* по основной оси */
+  align-items: center;
+  /* по вспомогательной оси, вертикально : */
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  /* Кнопочка кругленька */
+  border-radius: 50%;
+  /* исправить по-умолч что добавил браузер кнопке */
+  background-color: transparent;
+  border: 1px solid var(--color-primary-dark);
+  padding: 0;
+  /* курсор ручкой над кнопкой */
+  cursor: pointer;
+}
+
+.carousel-arrow {
+  fill: var(--color-primary-dark);
+}
+
 /* Contacts section */
 .contact-title {
   /* от h2 Приеднуйся...  до p Заповни форму */
@@ -530,6 +556,16 @@ color там указан как основной для всей страниц
 
 .address-link:hover {
   color: var(--color-brand-normal);
+}
+
+.address-icon {
+  fill: var(--color-primary-light);
+  /* обводка иконки  */
+  /* stroke: red; */
+}
+
+.address-icon:hover {
+  fill: var(--color-brand-normal);
 }
 
 .address-copyright {
