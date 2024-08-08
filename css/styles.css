@@ -475,12 +475,10 @@ color там указан как основной для всей страниц
 .format-card {
   height: 444px;
   padding: 24px;
-  background-image: linear-gradient(
-    180deg,
-    rgba(49, 38, 26, 0) 55.21%,
-    rgba(49, 38, 26, 0.71) 72.92%,
-    var(--color-primary-dark) 100%
-  );
+  background-image: linear-gradient(180deg,
+      rgba(49, 38, 26, 0) 55.21%,
+      rgba(49, 38, 26, 0.71) 72.92%,
+      var(--color-primary-dark) 100%);
   /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
   /*remove*/
   border: 1px solid lightgray;
@@ -532,13 +530,32 @@ color там указан как основной для всей страниц
   background-color: transparent;
   border: 1px solid var(--color-primary-dark);
   padding: 0;
+  /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-arrow {}*/
+  fill: var(--color-primary-dark);
   /* курсор ручкой над кнопкой */
   cursor: pointer;
 }
 
-.carousel-arrow {
-  fill: var(--color-primary-dark);
+
+.carousel-button:hover {
+  /* наведение на кнопку круглую со стрелкой - фон темно-зел */
+  background-color: var(--color-primary-dark);
+  /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-button: hover .carousel-arrow{} */
+  fill: var(--color-primary-light);
 }
+
+/* ушло из-за наслеlования fill */
+/* .carousel-button:hover .carousel-arrow { */
+/* наведение на кнопку круглую со стрелкой - сама стрелка иконка svg внутри кнопки становится светлой */
+/* fill здесь в иконке-стрелке наследуется от кнопки - переносим в кнопку-родителя.hover */
+/* fill: var(--color-primary-light); */
+/* } */
+
+/* ушло из-за наслеlования fill */
+/* .carousel-arrow { */
+/* fill здесь в иконке-стрелке наследуется от кнопки - переносим в кнопку-родителя */
+/* fill: var(--color-primary-dark); */
+/* } */
 
 /* Contacts section */
 .contact-title {
