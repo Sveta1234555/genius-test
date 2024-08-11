@@ -420,6 +420,7 @@ color там указан как основной для всей страниц
 } */
 
 /* Chefs section */
+
 .chefs-title {
   /* чтобы в 2 строки h2 стал, как на макете Фигма */
   /* max-width: 520px;  так в 3 строки, а не 2 */
@@ -448,6 +449,16 @@ color там указан как основной для всей страниц
   position: absolute;
   background-repeat: no-repeat; */
   /* background-size: cover; */
+}
+
+.chefs-list {
+  display: flex;
+  /* чтобы gap стал между элементами flex */
+  gap: 30px;
+}
+
+.chefs-item {
+  flex-basis: calc((100% - 30px) / 2);
 }
 
 .chef-photo {
