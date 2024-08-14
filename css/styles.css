@@ -461,6 +461,11 @@ color там указан как основной для всей страниц
   flex-basis: calc((100% - 30px) / 2);
 }
 
+.chef-card {
+  display: flex;
+  gap: 30px;
+}
+
 .chef-photo {
   /* Обрезать фотки шефов Настя ВЛад слева снизу */
   border-radius: 4px 4px 4px 200px;
@@ -501,6 +506,14 @@ color там указан как основной для всей страниц
   /* box-shadow: 2px 2px 4px 4px violet, 4px 4px 8px 8px gold; */
 }
 
+.formats-container {
+  display: flex;
+  /* выставить кнопки по вспомог. оси вертикальной посредине */
+  align-items: center;
+  /* между кнопками и div из 3-х карточек с обеих сторон*/
+  gap: 32px;
+}
+
 .formats-list {
   /* расположить карточки горизоантально */
   display: flex;
@@ -533,6 +546,8 @@ color там указан как основной для всей страниц
   align-items: center;
   /* по вспомогательной оси, вертикально : */
   justify-content: center;
+  /* чтобы круглые кнопки не сжимались до эллипса после display-flex новому div "formats-container" */
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   /* Кнопочка кругленька */
@@ -546,7 +561,6 @@ color там указан как основной для всей страниц
   /* курсор ручкой над кнопкой */
   cursor: pointer;
 }
-
 
 .carousel-button:hover {
   /* наведение на кнопку круглую со стрелкой - фон темно-зел */
@@ -569,6 +583,23 @@ color там указан как основной для всей страниц
 /* } */
 
 /* Contacts section */
+.contact-section {
+  padding-bottom: 96px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 32px;
+}
+
+.contact-map {
+  /* чтобы карта не сжималась после flex родителю и gap */
+  flex-shrink: 0;
+  /* убрать рамку вокруг map */
+  border: none;
+  border-radius: 16px;
+}
+
 .contact-title {
   /* от h2 Приеднуйся...  до p Заповни форму */
   margin-bottom: 16px;
