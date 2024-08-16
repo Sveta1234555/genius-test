@@ -51,11 +51,13 @@
   --color-brand-light: #cfcfbc;
   --color-background: #faf4ea;
   /* #A28268; */
-  --color-secondary-normal: #A18268;
+  --color-secondary-normal: #a18268;
 }
 
 /* Base */
-* {
+*,
+*::before,
+*::after {
   /* размеры блока padding  border  отсчитывать внутрь блока */
   box-sizing: border-box;
 }
@@ -462,6 +464,10 @@ color там указан как основной для всей страниц
   display: flex;
   /* чтобы gap стал между элементами flex */
   gap: 30px;
+  /* На развитие - при добавлении карточек - чтобы переносились на след строку */
+  flex-wrap: wrap;
+  /* На развитие - увеличить row-gap отступ между строчками карточек. после проверки f12 с болшим количеством карточек */
+  gap: 40px 30px;
 }
 
 .chefs-item {
@@ -489,6 +495,22 @@ color там указан как основной для всей страниц
   /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
 }
 
+/* так недостаточно , остается последний параграф 18 по-умолч, а не 0 */
+/* .chef-text p:not(:last-child) {
+  отступы между параграфами - 24,кроме посднего
+  margin-bottom: 24px;
+} */
+
+.chef-text p {
+  /* отступы между параграфами - 24 */
+  margin-bottom: 24px;
+}
+
+.chef-text p:last-child {
+  /* отступ последнему параграфу - 0 */
+  margin-bottom: 0;
+}
+
 /* Formats section */
 .format-item {
   /* 40 px это 2 gap по 20 px */
@@ -498,10 +520,12 @@ color там указан как основной для всей страниц
 .format-card {
   height: 444px;
   padding: 24px;
-  background-image: linear-gradient(180deg,
-      rgba(49, 38, 26, 0) 55.21%,
-      rgba(49, 38, 26, 0.71) 72.92%,
-      var(--color-primary-dark) 100%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 38, 26, 0) 55.21%,
+    rgba(49, 38, 26, 0.71) 72.92%,
+    var(--color-primary-dark) 100%
+  );
   /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
   /*remove*/
   border: 1px solid lightgray;
@@ -653,7 +677,6 @@ color там указан как основной для всей страниц
 .address-info {
   flex-grow: 1;
 }
-
 
 .address-link {
   color: var(--color-primary-light);
