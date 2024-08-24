@@ -1,0 +1,91 @@
+* {
+  /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+p {  margin: 0;}
+
+
+.header{
+  position: fixed;
+  background: antiquewhite;
+  padding: 30px;
+  /* относительно какой точки фиксировать - левый верхний body */
+  top: 0;
+  z-index: 4;
+}
+
+.container {
+  /* position: relative; */
+  padding: 30px;
+  border: 1px dotted black;
+  margin-top: 78px;
+}
+
+
+.parent {
+  /* position: relative; */
+  padding: 20px;
+  border: 1px dotted black;
+}
+
+.item.red {
+  /* по-умолч для любого элемента */
+  /* position: static; */
+  /* относительное позиционирование */
+  position: relative;
+  top: 20px;
+  left: 30px;
+  z-index: 3;
+  /* top: 40px;
+  left: 50px; */
+  width: 150px;
+  height: 150px;
+  background-color: red;
+}
+
+.item.green {
+  /* display: none; */
+  position: absolute;
+  z-index: 2;
+
+  /* opacity: 0.5; */
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
+
+.item.blue {
+  /* display: none; */
+  /* position: fixed; */
+  /* top: 0;
+  left: 0; */
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  z-index: 1;
+}
+
+.section-title {
+  /* заголовок h2 станет липким - зафиксируется вверху родительской секции  */
+  position: sticky;
+  top: 0;
+  background-color: burlywood;
+}
+
+/* Для сделать ращзными элеементы чтобы посмотеть   align-items: - выравнивание вдоль поперчной оси */
+/* .item:nth-child(2) {
+  width: 50px;
+  height: 50px;
+} */
+
+/* Внимание - чтобы отработало - надо last-child без скобочек */
+/* .item:last-child {
+  width: 80px;
+  height: 80px;
+} */

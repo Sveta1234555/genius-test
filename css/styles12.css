@@ -1,0 +1,84 @@
+* {
+  /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+  box-sizing: border-box;
+}
+
+.container {
+  /* position: relative; */
+  padding: 30px;
+  border: 1px dotted black;
+}
+
+
+.parent {
+  /* position: relative; */
+  padding: 20px;
+  border: 1px dotted black;
+}
+
+.item.red {
+  /* по-умолч для любого элемента */
+  /* position: static; */
+  /* относительное позиционирование */
+  position: relative;
+  /* top: 40px;
+  left: 50px; */
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  color: white;
+  /* по-умолч */
+  /* overflow: visible; */
+  /* над красным- текст виден, заего границами - нет */
+  /* overflow: hidden; */
+  /* если нужен доступ к тексту, которыйне вмещается в границы элемента
+  - прокрутка текста в элементе доавляется */
+  /* overflow: auto; */
+  /* overflow: scroll; */
+
+  /* отдельно задавать по осям линейки прокрутки */
+  overflow-x: auto;
+  overflow-y: auto;
+
+
+}
+
+.item.green {
+  /* display: none; */
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5; */
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
+
+.item.blue {
+  /* display: none; */
+  /* position: fixed; */
+  /* top: 0;
+  left: 0; */
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+}
+
+.section-title {
+  /* заоголовок h2 станет липким - зафиксируется вверху родительской секции  */
+  position: sticky;
+  top: 0;
+  background-color: burlywood;
+}
+
+/* Для сделать ращзными элеементы чтобы посмотеть   align-items: - выравнивание вдоль поперчной оси */
+/* .item:nth-child(2) {
+  width: 50px;
+  height: 50px;
+} */
+
+/* Внимание - чтобы отработало - надо last-child без скобочек */
+/* .item:last-child {
+  width: 80px;
+  height: 80px;
+} */
