@@ -346,6 +346,9 @@ color там указан как основной для всей страниц
 
 /* если внутри класса section-title (это общий класс заголовков h2) есть класс accent, то цвет задать всем*/
 .section-title .accent {
+  /* для span class="accent">шеф-кухарі расположить вертикально
+   под первой частью текста h2, как блоковый элемент */
+  display: block;
   color: var(--color-brand-dark);
 }
 
@@ -431,9 +434,14 @@ color там указан как основной для всей страниц
 /* Chefs section */
 
 .chefs-title {
+  /* для расположить линии before after по сторонам этого заголовка hw*/
+  position: relative;
   /* чтобы в 2 строки h2 стал, как на макете Фигма */
   /* max-width: 520px;  так в 3 строки, а не 2 */
-  max-width: 532px;
+
+  /* убрали т.к. сделали br */
+  /* max-width: 532px; */
+
   /* от заголовка h2 до списка настя-влад в секц. 3 (теперь 4) Шефы */
   /* margin-bottom: 80px; */
   /* 0 auto добавлено для центрирования h2 относительно своей секции. Класс centered - здесь недостасточно */
@@ -443,8 +451,16 @@ color там указан как основной для всей страниц
 /* Псевдоэлемент (after before):   для h2*/
 .chefs-title::before,
 .chefs-title::after {
+  position: absolute;
+  bottom: 24px;
   /* чтобы задавать высоту и ширину сдеелать block. по-умолч псевдо-элементы after before -  Inline и не учитывают w h */
-  display: block;
+
+  /* Назначили after before «position: absolute» 
+  элементы автоматически становятся блоковыми.
+  Теперь display block Ненуен, они уже стали такими 
+  из-за position=absolute */
+  /* display: block; */
+
   width: 352px;
 
   /* height: 2px;  вариант2 реализации
@@ -458,6 +474,52 @@ color там указан как основной для всей страниц
   position: absolute;
   background-repeat: no-repeat; */
   /* background-size: cover; */
+}
+
+.chefs-title::before {
+  /* для подвинуть линию before влево на ее ширину 352px */
+  /* относительно его элемента h2, к которому он присоединен */
+
+  /* перенесли вверх, одинак для after before */
+  /* position: absolute; */
+
+  /* top: 0; он и так изначально тут */
+  /* left: -352px; */
+  /* + 8px - зазор между границей H2 слева и линией before
+  352+8=360 */
+  /* left: -360px; */
+
+  /* убрали ограничение max-width=352 у chefs-title  (h2),
+     h2 стал шириной на всЮ страницу.
+     отсчет от границ H2 для after before */
+  left: 0;
+  /* к нижней границе по вертикали , на расстояние по макету снизу 24 Px*/
+  /* перенесли вверх, одинак правило для after before */
+  /* bottom: 24px; */
+}
+
+.chefs-title::after {
+  /* для подвинуть линию after вправо на ее ширину 352px */
+  /* относительно его элемента h2, к которому он присоединен */
+
+  /* перенесли вверх, одинак для after before */
+  /* position: absolute; */
+
+  /* top: 0; он и так изначально тут */
+  /* right: -352px; */
+  /* + 8px - зазор между границей H2  и линией after: 
+    352+8=360 */
+  /* right: -360px; */
+
+  /* убрали ограничение max-width=352 у chefs-title  (h2),
+   h2 стал шириной на всЮ страницу.
+   отсчет от границ H2 для after before */
+  right: 0;
+
+  /* к нижней границе по вертикали , на расстояние по макету снизу 24 Px*/
+
+  /* перенесли вверх, одинак правило для after before */
+  /* bottom: 24px; */
 }
 
 .chefs-list {
@@ -520,12 +582,10 @@ color там указан как основной для всей страниц
 .format-card {
   height: 444px;
   padding: 24px;
-  background-image: linear-gradient(
-    180deg,
-    rgba(49, 38, 26, 0) 55.21%,
-    rgba(49, 38, 26, 0.71) 72.92%,
-    var(--color-primary-dark) 100%
-  );
+  background-image: linear-gradient(180deg,
+      rgba(49, 38, 26, 0) 55.21%,
+      rgba(49, 38, 26, 0.71) 72.92%,
+      var(--color-primary-dark) 100%);
   /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
   /*remove*/
   border: 1px solid lightgray;
@@ -638,7 +698,7 @@ color там указан как основной для всей страниц
 
 /* Footer */
 .footer {
-  padding: 32px;
+  padding: 32px 0;
 }
 
 .footer-container {
@@ -706,6 +766,9 @@ color там указан как основной для всей страниц
 }
 
 .footer {
+  /* без этого не виден декор  before хлебец после bottom 0 у before */
+  /* это надо т.к. именно относительно footer позицонируем это изображение декор before */
+  position: relative;
   /* background-image: url('../images/footer-background.jpg'); */
   /* png - Прозрачный, чтобы достичь темного цвета фона, как в макете */
   background-image: url("../images/footer-background.png");
@@ -732,3 +795,26 @@ color там указан как основной для всей страниц
   background-image: radial-gradient(gold 50%, green 50%, green 70%, blue 70%, blue 100%);
   background-image: radial-gradient(gold 50%,  green 70%, blue 100%);
 } */
+
+.footer::before {
+  /* стал блоковым, вертикално располаг */
+  position: absolute;
+  width: 180px;
+  height: 120px;
+  /* поместить в нижний левый угол хлебец-декор before */
+  bottom: 0;
+  /* размеры задали явно, поэтому меняем на 100% */
+  /* background-size: 180px 120px; */
+  /* убрали 100% т.к. доавили no-repeat */
+  /* background-size: 100%; */
+  background-repeat: no-repeat;
+  background-image: url('../images/decor-bread-small.png');
+  content: '';
+}
+
+.footer::after {
+  /* стал блоковым, вертикално располаг */
+  position: absolute;
+  background-image: url('../images/decor-bread-large.png');
+  content: '';
+}
