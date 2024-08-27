@@ -582,10 +582,12 @@ color там указан как основной для всей страниц
 .format-card {
   height: 444px;
   padding: 24px;
-  background-image: linear-gradient(180deg,
-      rgba(49, 38, 26, 0) 55.21%,
-      rgba(49, 38, 26, 0.71) 72.92%,
-      var(--color-primary-dark) 100%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 38, 26, 0) 55.21%,
+    rgba(49, 38, 26, 0.71) 72.92%,
+    var(--color-primary-dark) 100%
+  );
   /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
   /*remove*/
   border: 1px solid lightgray;
@@ -699,6 +701,55 @@ color там указан как основной для всей страниц
 /* Footer */
 .footer {
   padding: 32px 0;
+  /* без этого не виден декор  before хлебец после bottom 0 у before */
+  /* это надо т.к. именно относительно footer позицонируем это изображение декор before */
+  position: relative;
+  /* background-image: url('../images/footer-background.jpg'); */
+  /* png - Прозрачный, чтобы достичь темного цвета фона, как в макете */
+  background-image: url("../images/footer-background.png");
+  background-color: var(--color-primary-dark);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.footer::before,
+.footer::after {
+  position: absolute;
+  bottom: 0;
+  background-repeat: no-repeat;
+  content: "";
+}
+
+.footer::before {
+  /* стал блоковым, вертикално располаг */
+  /* position: absolute;  одинаковые - вверх */
+  width: 180px;
+  height: 120px;
+  /* поместить в нижний левый угол хлебец-декор before */
+  /* bottom: 0; одинаковые - вверх */
+  left: 0;
+  /* размеры задали явно, поэтому меняем на 100% */
+  /* background-size: 180px 120px; */
+  /* убрали 100% т.к. доавили no-repeat */
+  /* background-size: 100%; */
+  /* background-repeat: no-repeat; одинаковые - вверх */
+  background-image: url("../images/decor-bread-small.png");
+  /* content: ""; одинаковые - вверх */
+}
+
+.footer::after {
+  /* стал блоковым, вертикално располаг */
+  /* position: absolute; одинаковые - вверх  */
+  width: 380px;
+  height: 190px;
+  /* поместить в нижний левый угол хлебец-декор before */
+  /* bottom: 0; одинаковые - вверх  */
+  /* поместить к правому краю */
+  right: 0;
+  /* background-repeat: no-repeat;  одинаковые - вверх  */
+  background-image: url("../images/decor-bread-large.png");
+  /* content: ""; одинаковые - вверх  */
 }
 
 .footer-container {
@@ -765,19 +816,6 @@ color там указан как основной для всей страниц
   color: var(--color-secondary-normal);
 }
 
-.footer {
-  /* без этого не виден декор  before хлебец после bottom 0 у before */
-  /* это надо т.к. именно относительно footer позицонируем это изображение декор before */
-  position: relative;
-  /* background-image: url('../images/footer-background.jpg'); */
-  /* png - Прозрачный, чтобы достичь темного цвета фона, как в макете */
-  background-image: url("../images/footer-background.png");
-  background-color: var(--color-primary-dark);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
 /* .test-box {
   width: 300px;
   height: 400px;
@@ -796,25 +834,51 @@ color там указан как основной для всей страниц
   background-image: radial-gradient(gold 50%,  green 70%, blue 100%);
 } */
 
-.footer::before {
-  /* стал блоковым, вертикално располаг */
-  position: absolute;
-  width: 180px;
-  height: 120px;
-  /* поместить в нижний левый угол хлебец-декор before */
+/* Мodal */
+.backdrop {
+  /* затемененный фон под активным модальным окном-  фиксированный элемент */
+  position: fixed;
+  /* растягиваться на всю ширину экрана. */
+  top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
-  /* размеры задали явно, поэтому меняем на 100% */
-  /* background-size: 180px 120px; */
-  /* убрали 100% т.к. доавили no-repeat */
-  /* background-size: 100%; */
-  background-repeat: no-repeat;
-  background-image: url('../images/decor-bread-small.png');
-  content: '';
+  /* фон - полупрозрачный черный цвет */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* для расположить модальное окно по центру backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.footer::after {
-  /* стал блоковым, вертикално располаг */
+/* .modal.is-hidden { */
+.backdrop.is-hidden {
+  /* когда к backdrop добавляется класс 'is-hidden', надо его- окно прятать: */
+  /* display: none; */
+
+  /* в2 реализации  */
+  /* делает окно прозрачным , но еще можно нажать на любой контент внутри формы, поля ввода*/
+  opacity: 0;
+  /* чтобы нельзя нажать на элементы скрытой формы */
+  /* Не сделать окно прозрачным , а  спрятать его, нажать нельзя уже на элементы на окне. */
+  visibility: hidden;
+  /* чтобы вообще нельзя было нажать на окно */
+  pointer-events: none;
+}
+
+.modal {
+  /* модальное окно */
+  /* для расположить относительно него кнопку ккрестик close */
+  position: relative;
+  width: 880px;
+  height: 880px;
+  background-color: var(--color-primary-light);
+  border-radius: 32px;
+}
+
+.modal-btn-close {
+  /* кнопка крестик close */
   position: absolute;
-  background-image: url('../images/decor-bread-large.png');
-  content: '';
+  top: 40px;
+  right: 40px;
 }
