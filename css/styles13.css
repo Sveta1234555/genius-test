@@ -1,0 +1,175 @@
+* {
+  /* отступы отсчитываются внутрь. Размер блока будет 100-100 */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.header {
+  position: fixed;
+  background: antiquewhite;
+  padding: 30px;
+  /* относительно какой точки фиксировать - левый верхний body */
+  top: 0;
+  z-index: 4;
+}
+
+.parent {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+  border: 1px dotted black;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.item.red_ {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  /* transform: translate(10px, 50px); */
+  transform: translateX(-70px);
+  /* плавный переход . свойства background-color за 2 секунды */
+  /* На самом элементе делать (здесь, а не на hover),
+    чтобы 2 обе стороны – при наведении и пр уведении мыши плавно менялся цвет */
+  transition-property: background-color;
+  /* transition-duration: 2s; */
+
+  transition-duration: 1s;
+  /* редко: */
+  /* линейно */
+  /* transition-timing-function: linear; */
+  /* время плавности - в начле, в конце... */
+  /* transition-timing-function: ease; */
+  /* transition-timing-function: ease-in; */
+  /* transition-timing-function: ease-out; */
+  /* transition-timing-function: ease-in-out; */
+
+  /* задержка, редко использ */
+  transition-delay: 0.5s;
+
+  transition-property: background-color 1s;
+  transition-property: background-color 1s, color 1s;
+  /* все свойства (оба эти 2) в одной окмаде вместе - но так не рекомендовано писать  */
+  transition-property: all 1s;
+
+  /* чаще использ стандарт: */
+  transition-property: background-color 0.2s;
+}
+
+
+.item.red {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  /* сдвиг */
+  transform: translateX(-20px);
+  opacity: 1;
+  transition-property: background-color 1s, color 1s,
+    transform 1s, opacity 1s;
+
+}
+
+.item.red:hover {
+  opacity: 0;
+  transform: translateX(0);
+  background-color: pink;
+  /* плавный переход . свойства background-color за 2 секунды */
+  /* чтобы и при наведении, и при убирании мыши плавный переход был 
+  - надо  в самом элементе делать, а не здесь, на псевдоклассе hover */
+  /* transition-property: background-color;
+  transition-duration: 2s; */
+  /* transition-duration: 2000ms; чаще в секундах 2s*/
+  color: black;
+}
+
+.item.green {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+
+  /* transform: rotate(90deg); */
+  /* 1 turn 360град */
+  /* transform: rotate(1turn); */
+  /* transform: rotate(0.5turn); */
+
+  /* Подключение анимации - имя из "@keyframes" */
+  animation-name: spin;
+  /* за какое время сделать переход */
+  animation-duration: 1s;
+  /* Задержка перед анимацией */
+  /* animation-delay: 5s; */
+  /* колво повторов анимации */
+  animation-iteration-count: 5;
+  /* бесконечно */
+  /* animation-iteration-count: infinite; */
+  /* плавная анимация */
+  animation-timing-function: linear;
+
+  animation: spin 1s infinite linear;
+  animation: spin 1s 5 linear;
+}
+
+
+.item.green:hover {
+  /* поставить анимацию на паузу,
+      если на hover */
+  animation-play-state: paused;
+}
+
+@keyframes spin0 {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    /* сделать один оборот */
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+    /* background-color: green; */
+  }
+
+  /* за половину времени (0,5 сек) повернется на 10 град */
+  /* 20% {
+    transform: rotate(10deg);
+    background-color: red;
+  } */
+
+  100% {
+    /* сделать один оборот */
+    transform: rotate(360deg);
+    /* background-color: gold; */
+  }
+}
+
+.item.blue {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  /* transform: scale(3.5); */
+  transform: scale(0.5);
+}
+
+.item.orange {
+  width: 150px;
+  height: 150px;
+  background-color: orange;
+  transform: skew(20deg, 20deg);
+}
