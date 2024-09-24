@@ -933,6 +933,11 @@ color там указан как основной для всей страниц
 }
 
 /* Form */
+
+.form-field {
+  margin-bottom: 32px;
+}
+
 .form-label {
   display: block;
 }
@@ -941,4 +946,14 @@ color там указан как основной для всей страниц
   padding: 16px 42px;
   /* растянуть input ппо всей ширине */
   width: 100%;
+  border: 1px solid var(--color-secondary-dark);
+  border-radius: 8px;
+  /* фон поля ввода input прозрачный */
+  background-color: transparent;
+}
+
+.form-input:focus {
+  border-color: var(--color-brand-normal);
+  /* убрать обводку синюю по-умолч от браузера, иначен невидно зеленого border в фокусе поля ввода */
+  outline: none;
 }
