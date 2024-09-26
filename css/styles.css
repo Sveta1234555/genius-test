@@ -935,11 +935,31 @@ color там указан как основной для всей страниц
 /* Form */
 
 .form-field {
+  /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+  position: relative;
   margin-bottom: 32px;
 }
 
 .form-label {
-  display: block;
+  /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+  position: absolute;
+  /* display: block; убрали, т.к. position abslolute делает элмент блоком по-умолчанию*/
+  top: 16px;
+  /* на макете слева от label до div */
+  left: 42px;
+  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+  font-size: 16px;
+  line-height: 1.17;
+  color: var(--color-secondary-dark);
+  /* для перемещения label над input */
+  /* transform: translate(-36px, -40px);  перемещен В .form-input:focus + .form-label */
+  transition: transform 0.3s;
+}
+
+/* Когда form-input в фокусе, то label, который лежит рядом, должен принимать такой стиль */
+.form-input:focus + .form-label {
+  /* для перемещения label над input */
+  transform: translate(-36px, -40px);
 }
 
 .form-input {
@@ -956,4 +976,9 @@ color там указан как основной для всей страниц
   border-color: var(--color-brand-normal);
   /* убрать обводку синюю по-умолч от браузера, иначен невидно зеленого border в фокусе поля ввода */
   outline: none;
+}
+
+.form-input::placeholder {
+  /* ПОдсказка вместо label внутри поля ввода input */
+  color: var(--color-secondary-dark);
 }
