@@ -937,14 +937,14 @@ color там указан как основной для всей страниц
 }
 
 /* Когда внутри form  будет фокус в любом элемента, к ней добавляются стили ( рамка будет черной у всей формы) */
-/* .form:focus-within {
+.form:focus-within {
   border: 1px solid black;
-} */
+}
 
 /* Когда внутри form-field (div) будет фокус, к нему добавляются стили ( рамка будет черной) */
-/* .form-field:focus-within {
+.form-field:focus-within {
   border: 1px solid black;
-} */
+}
 
 
 .form-label {
@@ -954,9 +954,13 @@ color там указан как основной для всей страниц
   top: 16px;
   /* на макете слева от label до div */
   left: 42px;
+  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+  font-size: 16px;
+  line-height: 1.17;
+  color: var(--color-secondary-dark);
   /* для перемещения label над input */
   /* transform: translate(-36px, -40px);  перемещен В .form-input:focus + .form-label */
-  /* transition: transform 0.3s;  для вар 2 , 3*/
+  transition: transform 0.3s;
 }
 
 
@@ -972,18 +976,15 @@ color там указан как основной для всей страниц
 /* вар 3  */
 /* перемещения Label над input, Когда form-input в фокусе (нендао перемещать label d html под input), должен принимать такой стиль */
 /* псевдокласс focus-within */
-/* .form-field:focus-within .form-label { */
-/* для перемещения label над input */
-/* transform: translate(-36px, -40px);
-} */
+.form-field:focus-within .form-label {
+  /* для перемещения label над input */
+  transform: translate(-36px, -40px);
+}
 
 .form-input {
   padding: 16px 42px;
   /* растянуть input ппо всей ширине */
   width: 100%;
-  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
-  font-size: 16px;
-  line-height: 1.17;
   border: 1px solid var(--color-secondary-dark);
   border-radius: 8px;
   /* фон поля ввода input прозрачный */
@@ -999,41 +1000,4 @@ color там указан как основной для всей страниц
 .form-input::placeholder {
   /* ПОдсказка вместо label внутри поля ввода input */
   color: var(--color-secondary-dark);
-  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
-  font-size: 16px;
-  line-height: 1.17;
-}
-
-.form-input:focus::placeholder {
-  /* цвет букв label менять при фокусе в input */
-  color: var(--color-primary-dark);
-}
-
-.form-button {
-  /* центрировать кнопку на форме */
-  /* кнопка по-умолч не является блоком. Она display-inlineblock (f12 видно) */
-  /* сделать кнопку на офрме block, чтобы центрировать ее с пом. margin 0 auto */
-  display: block;
-  margin: 0 auto;
-  /* доб24 px снизу отступ от кнопки */
-  margin: 0 auto 24px;
-}
-
-.form-terms {
-  /* текст под кнопкой на форме */
-  /* Для Центрирвоать текст под кнопкой – margin: 0 auto */
-  margin: 0 auto;
-  max-width: 220px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.5;
-  /* color inherit от body */
-  text-align: center;
-}
-
-.form-terms-link {
-  /* по-умолч ссылка - синяя, поменять на цвет по дизайну */
-  color: var(--color-primary-dark);
-  /* отступ до линии подчеркивания ссылки по-умолч отстутствует, а надо 2px */
-  text-underline-offset: 2px;
 }
