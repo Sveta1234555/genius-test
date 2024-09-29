@@ -382,12 +382,14 @@
       </div>
     </footer>
 
+    <!-- <div class="backdrop" is-hidden> -->
     <div class="backdrop">
       <div class="modal">
         <button class="modal-btn-close" type="button">Close</button>
         <h2>Замовити дзвінок</h2>
         <p>Залишіть заявку та наш спеціаліст зв'яжеться з Вами!</p>
-        <form name="modal-form" autocomplete="on" novalidate>
+        <!-- <form name="modal-form" autocomplete="on" novalidate> -->
+        <form name="modal-form" autocomplete="off">
           <!-- <legend>Контактна iнформацiя</legend> -->
           <div class="form-field">
             <label class="form-label visually-hidden" for="user-name"
@@ -399,6 +401,10 @@
               id="user-name"
               name="user-name"
               placeholder="Ім’я"
+              minlength="2"
+              maxlength="20"
+              required
+              disabled
             />
           </div>
           <div class="form-field">
@@ -410,7 +416,9 @@
               type="tel"
               id="user-tel"
               name="user-tel"
+              pattern="^\+[0-9]{12}"
               placeholder="Телефон"
+              required
             />
           </div>
           <div class="form-field">
@@ -423,9 +431,40 @@
               id="user-email"
               name="user-email"
               placeholder="Електронна пошта"
+              required
             />
           </div>
 
+          <div class="form-field">
+            <label class="form-label visually-hidden" for="user-etag"
+              >Поверх</label
+            >
+            <input
+              class="form-input"
+              type="number"
+              id="user-etag"
+              name="user-etag"
+              placeholder="Поверх"
+              min="1"
+              maxlength="24"
+              step="4"
+              required
+            />
+          </div>
+
+          <div class="checkbox">
+            <input
+              class="checkbox-input visually-hidden"
+              type="checkbox"
+              id="terms-conditions"
+              name="terms-conditions"
+            />
+            <label class="checkbox-label" for="terms-conditions">
+              Я точно погоджуюсь з політикою конфіденційності</label
+            >
+          </div>
+
+          <!-- <button class="form-button button" type="submit" disabled> -->
           <button class="form-button button" type="submit">
             Замовити дзвінок
           </button>
