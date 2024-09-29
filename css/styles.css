@@ -177,6 +177,16 @@ ul {
   background-color: transparent;
 }
 
+/* визуально отразить , если элемент кнопка disabled (программно отключен в html) */
+/* .button:disabled {} или через псевдокласс - так рекомендованнее */
+/* mod15 */
+/* .button[disabled] {
+  color: gray;
+  background-color: lightgray;
+  border-color: currentColor;
+  cursor: not-allowed;
+} */
+
 /* .button:focus {
   color: palevioletred;
 }
@@ -990,11 +1000,41 @@ color там указан как основной для всей страниц
   background-color: transparent;
 }
 
+
+/* mod15 */
+.form-input:placeholder-shown {
+  background-color: blue;
+}
+
+/* .form-input:not(:placeholder-shown) {
+  background-color: blue;
+} */
+
+
 .form-input:focus {
   border-color: var(--color-brand-normal);
   /* убрать обводку синюю по-умолч от браузера, иначен невидно зеленого border в фокусе поля ввода */
   outline: none;
 }
+
+/* mod15 Псевдокласи стану */
+.form-input:required {
+  border-color: red;
+}
+
+
+
+/* визуализировать , что элемент деактивиорован на html  mod15 */
+/* mod15 */
+.form-input:disabled {
+  border-color: lightgray;
+}
+
+.form-input:disabled::placeholder {
+  color: lightgray;
+}
+
+/* mod15 -end*/
 
 .form-input::placeholder {
   /* ПОдсказка вместо label внутри поля ввода input */
@@ -1036,4 +1076,49 @@ color там указан как основной для всей страниц
   color: var(--color-primary-dark);
   /* отступ до линии подчеркивания ссылки по-умолч отстутствует, а надо 2px */
   text-underline-offset: 2px;
+}
+
+/* mod15 - для замены стиля input  checkbox на свой
+при том, что его стиль по-умолч поменять нельзя */
+
+/* div checkbox - чтобы относительно него спозиционировать абсолютно .checkbox-label::before 
+для нарисовать свой квадратик */
+.checkbox {
+  position: relative;
+}
+
+.checkbox-input {
+  /* спрятать квадратик checkbox , который от браузера по-умолч */
+  appearance: none;
+}
+
+/* для чекбокс .checkbox-input в состоянии выбран (с птицей checked) 
+перейти к соседнему с ним label  .checkbox-label и закрасить его зеленым */
+/* .checkbox-input:checked+.checkbox-label {
+    color: green; */
+
+.checkbox-input:checked+.checkbox-label::before {
+  background-color: green;
+  /* Для нарисовать птицу внутри квадратика - иконкой можно
+  НО - к спрайту обратиться отсюда нельзя!!! */
+  background-image: url(../images/nn/instagram.svg);
+}
+
+/* подвинуть текст справа от нарисованного совего квадратика ::before */
+.checkbox-label {
+  padding-left: 24px;
+}
+
+.checkbox-label::before {
+  /* нарисовать псевдоклассом before сыой квадратик */
+  /* абсолютно спозиционироан относительно - div добавить, а то не к чему относительно позициоинироваться */
+  position: absolute;
+  /* позционировать квадратик */
+  top: 0;
+  left: 0;
+  margin-top: 5px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--color-primary-dark);
+  content: '';
 }
